@@ -14,7 +14,7 @@ export interface CPAOffer {
       slug: 'study-prompts',
       title: '50 AI Study Prompts',
       description: 'The ultimate semester survival kit for university students.',
-      longDescription: 'Unlock 50 custom-engineered AI prompts designed to automate essay outlining, complex note summarization, and exam preparation. Optimized for ChatGPT, Claude, and Gemini.',
+      longDescription: "Unlock 50 free AI prompts to help you outline essays, summarize notes, and prep for exams faster. Works with ChatGPT, Claude, Gemini, and more.",
       buttonText: 'Unlock Study Pack',
       lockerUrl: process.env.NEXT_PUBLIC_STUDENT_LOCKER_URL || '',
       imageLabel: 'ACADEMIC',

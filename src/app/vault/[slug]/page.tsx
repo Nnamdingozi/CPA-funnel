@@ -7,9 +7,7 @@ import { captureVaultLead } from "@/app/actions/leads";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { BrainCircuit } from "lucide-react";
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
+import { BrainCircuit, Zap } from "lucide-react";
 
 export default function OfferPage() {
   const { slug } = useParams();
@@ -31,7 +29,7 @@ export default function OfferPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <Header />
+
       <main className="flex-grow max-w-6xl mx-auto px-6 py-12 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
@@ -40,6 +38,20 @@ export default function OfferPage() {
               <span className="text-indigo-600">{offer.title.split(' ').pop()}</span>
             </h1>
             <p className="text-lg text-slate-500 font-medium">{offer.longDescription}</p>
+   
+{/* --- TEASER PROMPT SECTION --- */}
+<div className="bg-indigo-50/50 border border-indigo-100 rounded-3xl p-6 mb-8">
+  <div className="flex items-center gap-2 mb-3">
+    <Zap className="h-4 w-4 text-indigo-600 fill-current" />
+    <span className="text-[10px] font-black uppercase tracking-widest text-indigo-600">Free Sample Prompt</span>
+  </div>
+  <div className="space-y-2">
+    <p className="text-xs font-bold text-slate-400 uppercase">The "Complex Topic" Simplifier:</p>
+    <div className="bg-white border border-slate-100 rounded-xl p-4 text-sm text-slate-600 italic font-mono">
+      "Break down [topic] into a step-by-step study guide with the 5 most important points."
+    </div>
+  </div>
+</div>
             
             <Card className="border-0 shadow-2xl rounded-[2.5rem] bg-slate-950 text-white p-1">
               <CardContent className="p-8">
@@ -63,7 +75,6 @@ export default function OfferPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
