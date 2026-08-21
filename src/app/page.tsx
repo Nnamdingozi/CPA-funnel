@@ -698,7 +698,7 @@ export default function VaultGallery() {
             Free AI <span className="text-indigo-600">Toolkits.</span>
           </h1>
           <p className="text-slate-500 font-medium max-w-lg mx-auto">
-            Professional-grade AI prompt libraries and digital assets for students and creators. 100% Free.
+            Professional-grade AI prompt libraries and digital assets for students and educators. 100% Free.
           </p>
         </div>
 
