@@ -38,10 +38,16 @@ import Footer from "@/components/layout/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FreeVault | Open Access AI Toolkits",
-  description: "Professional-grade AI prompts and digital assets for students and creators.",
+  title: "Citadely | Open Access AI Vault",
+  description: "Professional-grade AI prompts for students.",
+  metadataBase: new URL('https://citadely.net'), // 👈 Update this
+  openGraph: {
+    title: "Citadely AI Vault",
+    description: "Unlock 50+ AI Study Prompts",
+    url: "https://citadely.net", // 👈 Update this
+    siteName: "Citadely",
+  },
 };
-
 export default function RootLayout({
   children,
 }: {

@@ -684,7 +684,7 @@ import React from "react";
 import Link from "next/link";
 import { OFFERS, CPAOffer } from "@/lib/offers";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, ArrowRight, Zap } from "lucide-react";
+import {  ArrowRight, Zap } from "lucide-react";
 
 export default function VaultGallery() {
   return (

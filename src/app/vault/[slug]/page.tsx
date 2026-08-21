@@ -153,12 +153,12 @@ export default function OfferPage() {
                 <form onSubmit={handleRequest} className="space-y-4">
                   <div className="space-y-2">
                     <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 ml-2">
-                      Academic Delivery Email
+                      Enter your Email
                     </label>
                     <Input 
                       required 
                       type="email" 
-                      placeholder="you@university.edu" 
+                      placeholder="you@gmail.com" 
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="h-16 bg-slate-900 border-0 text-white rounded-2xl px-6 focus:ring-2 focus:ring-indigo-500"

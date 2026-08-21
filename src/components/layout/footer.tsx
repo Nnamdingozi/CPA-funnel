@@ -16,7 +16,7 @@ export default function Footer() {
           </p>
           <p className="text-[9px] font-medium text-slate-400 max-w-md mx-auto leading-relaxed uppercase tracking-widest">
             Professional-grade AI prompts and digital assets for students and creators. 
-            Hosted on the <span className="text-indigo-600 font-bold">FreeVault.space</span> network.
+            Hosted on the <span className="text-indigo-600 font-bold">citadely.net</span> network.
           </p>
         </div>
 
@@ -25,7 +25,7 @@ export default function Footer() {
         <Link href="/privacy" className="hover:text-indigo-600 transition-colors">Privacy Policy</Link>
   <Link href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</Link>
   <Link href="/dmca" className="hover:text-indigo-600 transition-colors">DMCA Policy</Link>
-  <Link href="mailto:support@freevault.space" className="hover:text-indigo-600 transition-colors">Contact Support</Link>
+  <Link href="mailto:support@citadely.net" className="hover:text-indigo-600 transition-colors">Contact Support</Link>
         </div>
 
         {/* Technical Badge */}

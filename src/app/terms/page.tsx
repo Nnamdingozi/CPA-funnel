@@ -6,7 +6,7 @@ export default function TermsOfService() {
     <LegalPage title="Terms of Service" lastUpdated="August 2024">
       <section>
         <h2>1. Access to Content</h2>
-        <p>Access to the FreeVault library is granted upon successful completion of our security verification process. We reserve the right to modify or remove content at any time without notice.</p>
+        <p>Access to the citadely library  is granted upon successful completion of our security verification process. We reserve the right to modify or remove content at any time without notice.</p>
       </section>
       <section>
         <h2>2. Intellectual Property</h2>
