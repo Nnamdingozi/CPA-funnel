@@ -14,7 +14,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 group">
           <Sparkles className="text-indigo-600 h-6 w-6 fill-current group-hover:rotate-12 transition-transform duration-300" />
           <span className="font-black text-2xl tracking-tighter uppercase italic text-slate-800">
-            FREE<span className="text-indigo-600">VAULT</span>
+            CITADELY<span className="text-indigo-600">HUB</span>
           </span>
         </Link>
 
