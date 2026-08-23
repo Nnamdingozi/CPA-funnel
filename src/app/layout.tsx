@@ -37,43 +37,10 @@ import Footer from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// export const metadata: Metadata = {
-//   title: "Citadely | Open Access AI Vault",
-//   description: "Professional-grade AI prompts for students.",
-//   metadataBase: new URL('https://citadely.net'), // 👈 Update this
-//   openGraph: {
-//     title: "Citadely AI Vault",
-//     description: "Unlock 50+ AI Study Prompts",
-//     url: "https://citadely.net", // 👈 Update this
-//     siteName: "Citadely",
-//   },
-// };
-
 
 export const metadata: Metadata = {
-  title: "50 Free AI Prompts for Students | Citadely",
-  description: "50 free AI prompts to help you outline essays, summarize notes, and prep for exams faster. Works with ChatGPT, Claude, Gemini, and more.",
-  openGraph: {
-    title: "50 Free AI Prompts for Students",
-    description: "Copy, paste, done. 50 free prompts for essays, research, and exam prep.",
-    url: "https://www.citadely.net/vault/study-prompts",
-    siteName: "Citadely",
-    images: [
-      {
-        url: "https://www.citadely.net/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "50 AI Prompts for Students",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "50 Free AI Prompts for Students",
-    description: "Copy, paste, done. 50 free prompts for essays, research, and exam prep.",
-    images: ["https://www.citadely.net/og-image.png"],
-  },
+  title: "Citadely",
+  description: "Free resources and guides.",
 };
 
 
@@ -101,3 +68,24 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+
+// import type { Metadata } from "next";
+
+// export const metadata: Metadata = {
+//   title: "Citadely",
+//   description: "Free resources and guides.",
+// };
+
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <html lang="en">
+//       <body>{children}</body>
+//     </html>
+//   );
+// }
