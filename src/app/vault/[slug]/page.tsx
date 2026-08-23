@@ -80,29 +80,87 @@
 // }
 
 
+// import type { Metadata } from "next";
+// import { notFound } from "next/navigation";
+// import { getOfferBySlug, getOgImage } from "@/lib/offers";
+// import VaultClient from "./vaultClient";
+
+// const SITE_URL = "https://www.citadely.net";
+
+// type Props = {
+//   params: { slug: string };
+// };
+
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+//   const offer = getOfferBySlug(params.slug);
+
+//   if (!offer) {
+//     return {
+//       title: "Citadely",
+//       description: "Free resources and guides.",
+//     };
+//   }
+
+//   const url = `${SITE_URL}/vault/${offer.slug}`;
+//   const ogImageUrl = `${SITE_URL}${getOgImage(offer)}`;
+
+//   return {
+//     title: `${offer.title} | Citadely`,
+//     description: offer.longDescription,
+//     openGraph: {
+//       title: offer.title,
+//       description: offer.description,
+//       url,
+//       siteName: "Citadely",
+//       images: [
+//         {
+//           url: ogImageUrl,
+//           width: 1200,
+//           height: 630,
+//           alt: offer.title,
+//         },
+//       ],
+//       type: "website",
+//     },
+//     twitter: {
+//       card: "summary_large_image",
+//       title: offer.title,
+//       description: offer.description,
+//       images: [ogImageUrl],
+//     },
+//   };
+// }
+
+// export default function VaultPage({ params }: Props) {
+//   const offer = getOfferBySlug(params.slug);
+
+//   if (!offer) {
+//     notFound();
+//   }
+
+//   return <VaultClient offer={offer} />;
+// }
+
+
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getOfferBySlug, getOgImage } from "@/lib/offers";
+import { OFFERS } from "@/lib/offers";
 import VaultClient from "./vaultClient";
 
-const SITE_URL = "https://www.citadely.net";
-
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const offer = getOfferBySlug(params.slug);
+  const { slug } = await params;
+  const offer = OFFERS.find((o) => o.slug === slug);
 
   if (!offer) {
-    return {
-      title: "Citadely",
-      description: "Free resources and guides.",
-    };
+    return { title: "Citadely", description: "Free resources and guides." };
   }
 
-  const url = `${SITE_URL}/vault/${offer.slug}`;
-  const ogImageUrl = `${SITE_URL}${getOgImage(offer)}`;
+  const url = `https://www.citadely.net/vault/${offer.slug}`;
+  const ogImage = `https://www.citadely.net${offer.ogImage || "/og/default.png"}`;
 
   return {
     title: `${offer.title} | Citadely`,
@@ -112,31 +170,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: offer.description,
       url,
       siteName: "Citadely",
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: offer.title,
-        },
-      ],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: offer.title }],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: offer.title,
       description: offer.description,
-      images: [ogImageUrl],
+      images: [ogImage],
     },
   };
 }
 
-export default function VaultPage({ params }: Props) {
-  const offer = getOfferBySlug(params.slug);
-
-  if (!offer) {
-    notFound();
-  }
+export default async function VaultPage({ params }: Props) {
+  const { slug } = await params;
+  const offer = OFFERS.find((o) => o.slug === slug);
+  if (!offer) notFound();
 
   return <VaultClient offer={offer} />;
 }
