@@ -32,16 +32,16 @@ export default function VaultClient({ offer }: { offer: CPAOffer }) {
     <div className="min-h-screen bg-white text-slate-900">
       <MetaPixel id={PIXEL_ID} />
 
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 py-4">
+      {/* <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 py-4">
         <div className="max-w-4xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 font-black text-xl tracking-tighter uppercase italic">
             <Sparkles className="text-blue-600 h-5 w-5 fill-current" />
             <span>{SITE_NAME}</span>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
-      <main className="max-w-2xl mx-auto px-6 py-16 md:py-24">
+      <main className="max-w-2xl mx-auto px-6">
         <div className="text-center space-y-6 mb-12">
           <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest border border-blue-100">
             {offer.imageLabel}

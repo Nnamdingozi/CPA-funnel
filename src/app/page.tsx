@@ -707,7 +707,11 @@ export default function VaultGallery() {
             <Link key={offer.slug} href={`/vault/${offer.slug}`}>
               <Card className="group border-0 shadow-lg hover:shadow-2xl transition-all rounded-[2rem] overflow-hidden bg-white cursor-pointer">
                 <div className="aspect-video bg-slate-900 flex items-center justify-center relative">
-                  <span className="text-slate-700 font-black text-4xl italic opacity-20 group-hover:scale-110 transition-transform">{offer.imageLabel}</span>
+                <img
+    src={offer.ogImage || "/og/default.png"}
+    alt={offer.title}
+    className="absolute inset-0 w-full h-full object-cover"
+  />
                   <div className="absolute top-4 right-4 bg-indigo-600 text-white text-[8px] font-black px-2 py-1 rounded-md uppercase">Free</div>
                 </div>
                 <CardContent className="p-8 space-y-4">
