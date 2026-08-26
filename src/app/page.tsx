@@ -678,13 +678,66 @@
 
 
 
+// "use client";
+
+// import React from "react";
+// import Link from "next/link";
+// import { OFFERS, CPAOffer } from "@/lib/offers";
+// import { Card, CardContent } from "@/components/ui/card";
+// import {  ArrowRight, Zap } from "lucide-react";
+
+// export default function VaultGallery() {
+//   return (
+//     <div className="min-h-screen bg-[#F8F9FF] flex flex-col">
+//       <main className="flex-grow max-w-6xl mx-auto px-6 py-16">
+//         <div className="text-center space-y-4 mb-16">
+//           <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest border border-indigo-100">
+//             <Zap className="h-3 w-3 fill-current" /> Open Access Vault
+//           </div>
+//           <h1 className="text-5xl md:text-6xl font-black uppercase italic tracking-tighter">
+//             Free AI <span className="text-indigo-600">Toolkits.</span>
+//           </h1>
+//           <p className="text-slate-500 font-medium max-w-lg mx-auto">
+//             Professional-grade AI prompt libraries and digital assets for students and educators. 100% Free.
+//           </p>
+//         </div>
+
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//           {OFFERS.map((offer: CPAOffer) => (
+//             <Link key={offer.slug} href={`/vault/${offer.slug}`}>
+//               <Card className="group border-0 shadow-lg hover:shadow-2xl transition-all rounded-[2rem] overflow-hidden bg-white cursor-pointer">
+//                 <div className="aspect-video bg-slate-900 flex items-center justify-center relative">
+//                 <img
+//     src={offer.ogImage || "/og/default.png"}
+//     alt={offer.title}
+//     className="absolute inset-0 w-full h-full object-cover"
+//   />
+//                   <div className="absolute top-4 right-4 bg-indigo-600 text-white text-[8px] font-black px-2 py-1 rounded-md uppercase">Free</div>
+//                 </div>
+//                 <CardContent className="p-8 space-y-4">
+//                   <h3 className="text-xl font-black uppercase italic">{offer.title}</h3>
+//                   <p className="text-slate-500 text-sm line-clamp-2">{offer.description}</p>
+//                   <div className="flex items-center text-indigo-600 font-bold text-xs uppercase tracking-widest gap-2">
+//                     View Details <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
+//                   </div>
+//                 </CardContent>
+//               </Card>
+//             </Link>
+//           ))}
+//         </div>
+//       </main>
+//     </div>
+//   );
+// }
+
+
 "use client";
 
 import React from "react";
 import Link from "next/link";
 import { OFFERS, CPAOffer } from "@/lib/offers";
 import { Card, CardContent } from "@/components/ui/card";
-import {  ArrowRight, Zap } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 
 export default function VaultGallery() {
   return (
@@ -698,24 +751,26 @@ export default function VaultGallery() {
             Free AI <span className="text-indigo-600">Toolkits.</span>
           </h1>
           <p className="text-slate-500 font-medium max-w-lg mx-auto">
-            Professional-grade AI prompt libraries and digital assets for students and educators. 100% Free.
+            Professional-grade AI prompt libraries for students and educators. 100% Free.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {OFFERS.map((offer: CPAOffer) => (
+          {OFFERS.map((offer) => (
             <Link key={offer.slug} href={`/vault/${offer.slug}`}>
               <Card className="group border-0 shadow-lg hover:shadow-2xl transition-all rounded-[2rem] overflow-hidden bg-white cursor-pointer">
                 <div className="aspect-video bg-slate-900 flex items-center justify-center relative">
-                <img
-    src={offer.ogImage || "/og/default.png"}
-    alt={offer.title}
-    className="absolute inset-0 w-full h-full object-cover"
-  />
-                  <div className="absolute top-4 right-4 bg-indigo-600 text-white text-[8px] font-black px-2 py-1 rounded-md uppercase">Free</div>
+                  <img
+                    src={offer.ogImage}
+                    alt={offer.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                  />
+                  <div className="absolute top-4 right-4 bg-indigo-600 text-white text-[8px] font-black px-2 py-1 rounded-md uppercase">
+                    {offer.imageLabel}
+                  </div>
                 </div>
                 <CardContent className="p-8 space-y-4">
-                  <h3 className="text-xl font-black uppercase italic">{offer.title}</h3>
+                  <h3 className="text-xl font-black uppercase italic text-slate-900">{offer.title}</h3>
                   <p className="text-slate-500 text-sm line-clamp-2">{offer.description}</p>
                   <div className="flex items-center text-indigo-600 font-bold text-xs uppercase tracking-widest gap-2">
                     View Details <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
