@@ -421,12 +421,142 @@
 // }
 
 
+// "use client";
+
+// import React, { useEffect, useState, Suspense } from "react";
+// import { useSearchParams } from "next/navigation";
+// import { OFFERS } from "@/lib/offers";
+// import { Loader2, Download, ExternalLink, Sparkles, Zap, CheckCircle2 } from "lucide-react";
+// import { Button } from "@/components/ui/button";
+
+// function ThankYouContent() {
+//   const searchParams = useSearchParams();
+//   const offerSlug = searchParams.get("offer");
+//   const [canDownload, setCanDownload] = useState(false);
+
+//   const offer = OFFERS.find(o => o.slug === offerSlug);
+
+//   useEffect(() => {
+//     // Quick 2-second authentication for better UX flow
+//     const timer = setTimeout(() => setCanDownload(true), 2000);
+//     return () => clearTimeout(timer);
+//   }, []);
+
+//   if (!offer) return <div className="p-20 text-center font-black uppercase italic">Session expired.</div>;
+
+//   return (
+//     <main className="max-w-5xl mx-auto px-6 py-8 md:py-12 space-y-8">
+      
+//       {/* COMPACT HERO ROW (THE DOWNLOAD BAR) */}
+//       <div className="bg-white border-2 border-indigo-600 rounded-3xl p-4 md:p-6 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+//         <div className="flex items-center gap-4">
+//             <div className="bg-green-100 p-2 rounded-full hidden sm:block">
+//                 <CheckCircle2 className="h-6 w-6 text-green-600" />
+//             </div>
+//             <div className="text-left">
+//                 <h1 className="text-2xl md:text-3xl font-black uppercase italic text-slate-900 leading-none">
+//                     Success! Access Granted
+//                 </h1>
+//                 <p className="text-slate-400 font-bold uppercase text-[9px] tracking-widest mt-1">
+//                     Your {offer.title} is verified
+//                 </p>
+//             </div>
+//         </div>
+
+//         <div className="w-full md:w-auto">
+//             {canDownload ? (
+//               <Button 
+//                 asChild
+//                 className="w-full md:w-auto h-14 px-10 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-black uppercase italic rounded-2xl shadow-lg transition-all hover:scale-105 flex items-center gap-2"
+//               >
+//                 <a href={offer.pdfUrl} download>
+//                   <Download className="h-4 w-4" /> Download Now
+//                 </a>
+//               </Button>
+//             ) : (
+//               <div className="flex items-center gap-3 bg-slate-50 px-6 py-3 rounded-2xl border border-slate-100">
+//                 <Loader2 className="h-5 w-5 animate-spin text-indigo-600" />
+//                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+//                   Authenticating...
+//                 </span>
+//               </div>
+//             )}
+//         </div>
+//       </div>
+
+//       {/* THE UPSELLS (PARTIALLY VISIBLE ABOVE THE FOLD) */}
+//       <div className="space-y-6">
+//         <div className="flex items-center gap-4">
+//             <h2 className="text-xs font-black uppercase tracking-[0.3em] text-slate-400 whitespace-nowrap">
+//                 Student Growth Hub
+//             </h2>
+//             <div className="h-px bg-slate-100 flex-grow" />
+//         </div>
+
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+//             {/* SELAR USD OFFER (LEFT) */}
+//             <div className="bg-slate-900 rounded-[2.5rem] p-8 text-white text-left space-y-6 shadow-xl flex flex-col justify-between hover:translate-y-[-4px] transition-transform">
+//                 <div className="space-y-4">
+//                     <div className="flex items-center gap-2 bg-indigo-600 w-fit px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
+//                         <Sparkles className="h-3 w-3 fill-current text-yellow-300" /> Recommended Side-Hustle
+//                     </div>
+//                     <h3 className="text-2xl font-black uppercase italic leading-tight">
+//                         Earn USD with <br/> AI Ecommerce
+//                     </h3>
+//                     <p className="text-slate-400 text-sm leading-relaxed">
+//                         Copy the exact prompts I use to build automated stores that generate USD income from Nigeria.
+//                     </p>
+//                 </div>
+//                 <Button asChild className="w-full h-14 bg-white text-slate-900 hover:bg-slate-100 text-xs font-black uppercase italic rounded-xl mt-4">
+//                     <a href={offer.selarUrl} target="_blank">View Premium Guide <ExternalLink className="ml-2 h-4 w-4" /></a>
+//                 </Button>
+//             </div>
+
+//             {/* AFFILIATE TOOL (RIGHT) */}
+//             <div className="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 text-left space-y-6 shadow-sm flex flex-col justify-between hover:border-indigo-200 transition-all">
+//                 <div className="space-y-4">
+//                     <div className="flex items-center gap-2 bg-indigo-50 w-fit px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-600">
+//                         <Zap className="h-3 w-3 fill-current text-indigo-600" /> Essential Tool
+//                     </div>
+//                     <h3 className="text-2xl font-black uppercase italic leading-tight text-slate-900">
+//                         Top AI Research <br/> Assistant
+//                     </h3>
+//                     <p className="text-slate-500 text-sm leading-relaxed">
+//                         The #1 student-recommended tool for thesis research and essay automation. Try it free.
+//                     </p>
+//                 </div>
+//                 <Button asChild variant="outline" className="w-full h-14 border-slate-200 text-slate-900 hover:bg-slate-50 text-xs font-black uppercase italic rounded-xl mt-4">
+//                     <a href={offer.affiliateUrl} target="_blank">Get Free Trial <ExternalLink className="ml-2 h-4 w-4" /></a>
+//                 </Button>
+//             </div>
+//         </div>
+//       </div>
+
+//       <footer className="pt-8 opacity-20 text-[8px] font-black uppercase tracking-[0.5em] text-center">
+//         &copy; {new Date().getFullYear()} CITADELY GLOBAL EDUCATION
+//       </footer>
+//     </main>
+//   );
+// }
+
+// export default function ThankYouPage() {
+//   return (
+//     <div className="min-h-screen bg-[#F8F9FF] flex flex-col">
+//       <Suspense fallback={<div className="flex justify-center pt-20"><Loader2 className="h-10 w-10 animate-spin text-indigo-600" /></div>}>
+//         <ThankYouContent />
+//       </Suspense>
+//     </div>
+//   );
+// }
+
+
+
 "use client";
 
 import React, { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { OFFERS } from "@/lib/offers";
-import { Loader2, Download, ExternalLink, Sparkles, Zap, CheckCircle2 } from "lucide-react";
+import { Loader2, Download, ExternalLink, Sparkles, Youtube, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 function ThankYouContent() {
@@ -437,7 +567,7 @@ function ThankYouContent() {
   const offer = OFFERS.find(o => o.slug === offerSlug);
 
   useEffect(() => {
-    // Quick 2-second authentication for better UX flow
+    // 2-second authentication delay
     const timer = setTimeout(() => setCanDownload(true), 2000);
     return () => clearTimeout(timer);
   }, []);
@@ -484,7 +614,7 @@ function ThankYouContent() {
         </div>
       </div>
 
-      {/* THE UPSELLS (PARTIALLY VISIBLE ABOVE THE FOLD) */}
+      {/* THE UPSELLS (VISIBLE ABOVE THE FOLD) */}
       <div className="space-y-6">
         <div className="flex items-center gap-4">
             <h2 className="text-xs font-black uppercase tracking-[0.3em] text-slate-400 whitespace-nowrap">
@@ -494,7 +624,8 @@ function ThankYouContent() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* SELAR USD OFFER (LEFT) */}
+            
+            {/* SELAR USD OFFER (LEFT) - YOUR ECOMMERCE BOOK */}
             <div className="bg-slate-900 rounded-[2.5rem] p-8 text-white text-left space-y-6 shadow-xl flex flex-col justify-between hover:translate-y-[-4px] transition-transform">
                 <div className="space-y-4">
                     <div className="flex items-center gap-2 bg-indigo-600 w-fit px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
@@ -512,23 +643,24 @@ function ThankYouContent() {
                 </Button>
             </div>
 
-            {/* AFFILIATE TOOL (RIGHT) */}
-            <div className="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 text-left space-y-6 shadow-sm flex flex-col justify-between hover:border-indigo-200 transition-all">
+            {/* STAKECUT AFFILIATE OFFER (RIGHT) - YOUTUBE INCOME GENERATOR */}
+            <div className="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 text-left space-y-6 shadow-sm flex flex-col justify-between hover:border-red-100 transition-all">
                 <div className="space-y-4">
-                    <div className="flex items-center gap-2 bg-indigo-50 w-fit px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-600">
-                        <Zap className="h-3 w-3 fill-current text-indigo-600" /> Essential Tool
+                    <div className="flex items-center gap-2 bg-red-50 w-fit px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-red-600 border border-red-100">
+                        <Youtube className="h-3 w-3 fill-current" /> Free Video Training
                     </div>
                     <h3 className="text-2xl font-black uppercase italic leading-tight text-slate-900">
-                        Top AI Research <br/> Assistant
+                        Passive USD via <br/> Faceless YouTube
                     </h3>
                     <p className="text-slate-500 text-sm leading-relaxed">
-                        The #1 student-recommended tool for thesis research and essay automation. Try it free.
+                        Discover how to use AI to build a YouTube channel that earns in Dollars without showing your face.
                     </p>
                 </div>
-                <Button asChild variant="outline" className="w-full h-14 border-slate-200 text-slate-900 hover:bg-slate-50 text-xs font-black uppercase italic rounded-xl mt-4">
-                    <a href={offer.affiliateUrl} target="_blank">Get Free Trial <ExternalLink className="ml-2 h-4 w-4" /></a>
+                <Button asChild variant="outline" className="w-full h-14 border-red-200 text-red-600 hover:bg-red-50 text-xs font-black uppercase italic rounded-xl mt-4">
+                    <a href={offer.affiliateUrl} target="_blank">Watch Free Webinar <ExternalLink className="ml-2 h-4 w-4" /></a>
                 </Button>
             </div>
+
         </div>
       </div>
 

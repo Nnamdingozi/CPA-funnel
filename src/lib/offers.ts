@@ -94,8 +94,8 @@ export const OFFERS: CPAOffer[] = [
     imageLabel: "Free PDF Download",
     buttonText: "Get Free Access",
     ogImage: "/og/study-prompts.png",
-    pdfUrl: "/50_AI_Prompts_for_Students.pdf", 
+    pdfUrl: "/50_AI_Prompts_for_Students_with_promos.pdf", 
     selarUrl: 'https://selar.com/461rj1p3by',
-    affiliateUrl: "https://impact.com/your-link", // Update with your Impact/Stakecut link
+    affiliateUrl: "https://yigcourse.com/?pid=520500&a=91953121", // Update with your Impact/Stakecut link
   }
 ];

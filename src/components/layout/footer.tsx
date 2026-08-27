@@ -69,7 +69,7 @@ export default function Footer() {
           <Link href="/privacy" className="hover:text-indigo-600 transition-colors">Privacy Policy</Link>
           <Link href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</Link>
           <Link href="/dmca" className="hover:text-indigo-600 transition-colors">DMCA Policy</Link>
-          <Link href="mailto:support@citadely.net" className="hover:text-indigo-600 transition-colors">Contact Support</Link>
+          <Link href="mailto:admin@citadely.net" className="hover:text-indigo-600 transition-colors">Contact Support</Link>
         </div>
 
         {/* Technical Badge & Verification */}
@@ -80,9 +80,7 @@ export default function Footer() {
 
           {/* IMPACT VERIFICATION - EXACT STRING MATCH AS REQUESTED */}
           <div className="pt-2">
-            <p className="text-[8px] text-slate-200 select-all font-medium">
-                Impact-Site-Verification: fd132833-fb8d-4a74-ade4-f0b357ee9a1e
-            </p>
+          
           </div>
         </div>
 
