@@ -288,4 +288,3 @@ export default async function VaultPage({ params }: Props) {
 
   return <VaultClient offer={offer} />;
 }
-}
