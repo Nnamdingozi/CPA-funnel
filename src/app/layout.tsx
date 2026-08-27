@@ -117,7 +117,7 @@ export const metadata: Metadata = {
     siteName: "Citadely",
     images: [
       {
-        url: "/og/study-prompts.png", // Use the path to your best prompt image
+        url: "https://www.citadely.net/og/study-prompts.png", // Use the path to your best prompt image
         width: 1200,
         height: 630,
       },
@@ -126,7 +126,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/study-prompts.png"],
+    images: ["https://www.citadely.net/og/study-prompts.png"],
   },
 };
 
