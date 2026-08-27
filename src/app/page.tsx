@@ -750,6 +750,7 @@ export default function VaultGallery() {
           <h1 className="text-5xl md:text-6xl font-black uppercase italic tracking-tighter">
             Free AI <span className="text-indigo-600">Toolkits.</span>
           </h1>
+       <h2>Impact-Site-Verification: 1129bb38-97d8-4600-8b61-6b131f5cca6d</h2>
           <p className="text-slate-500 font-medium max-w-lg mx-auto">
             Professional-grade AI prompt libraries for students and educators. 100% Free.
           </p>
