@@ -29,50 +29,50 @@
 // }
 
 
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
+// import type { Metadata } from "next";
+// import { Inter } from "next/font/google";
+// import "./globals.css";
+// import Header from "@/components/layout/header";
+// import Footer from "@/components/layout/footer";
 
-const inter = Inter({ subsets: ["latin"] });
-
-
-export const metadata: Metadata = {
-  title: "Citadely",
-  description: "Free resources and guides.",
-  verification: {
-    other: {
-      "impact-site-verification": ["fd132833-fb8d-4a74-ade4-f0b357ee9a1e"],
-    },
-  },
-};
+// const inter = Inter({ subsets: ["latin"] });
 
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="min-h-screen flex flex-col bg-white">
-          {/* Header is now global */}
-          <Header />
+// export const metadata: Metadata = {
+//   title: "Citadely",
+//   description: "Free resources and guides.",
+//   verification: {
+//     other: {
+//       "impact-site-verification": ["fd132833-fb8d-4a74-ade4-f0b357ee9a1e"],
+//     },
+//   },
+// };
+
+
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <html lang="en">
+//       <body className={inter.className}>
+//         <div className="min-h-screen flex flex-col bg-white">
+//           {/* Header is now global */}
+//           <Header />
           
-          {/* This is where each individual page content is injected */}
-          <main className="flex-grow">
-            {children}
-          </main>
+//           {/* This is where each individual page content is injected */}
+//           <main className="flex-grow">
+//             {children}
+//           </main>
 
-          {/* Footer is now global */}
-          <Footer />
-        </div>
-      </body>
-    </html>
-  );
-}
+//           {/* Footer is now global */}
+//           <Footer />
+//         </div>
+//       </body>
+//     </html>
+//   );
+// }
 
 
 
@@ -94,3 +94,48 @@ export default function RootLayout({
 //     </html>
 //   );
 // }
+
+
+
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
+
+const inter = Inter({ subsets: ["latin"] });
+
+// Clean SEO Metadata (Verification removed from here)
+export const metadata: Metadata = {
+  title: "Citadely",
+  description: "Free resources and guides.",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <head>
+        {/* DIRECT IMPACT VERIFICATION TAG - BOT PROTECTION BYPASS */}
+        <meta name="impact-site-verification" value="fd132833-fb8d-4a74-ade4-f0b357ee9a1e" />
+      </head>
+      <body className={inter.className}>
+        <div className="min-h-screen flex flex-col bg-white">
+          {/* Header is now global */}
+          <Header />
+          
+          {/* This is where each individual page content is injected */}
+          <main className="flex-grow">
+            {children}
+          </main>
+
+          {/* Footer is now global */}
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
+}
