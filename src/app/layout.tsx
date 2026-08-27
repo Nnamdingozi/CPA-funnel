@@ -97,6 +97,61 @@
 
 
 
+// import type { Metadata } from "next";
+// import { Inter } from "next/font/google";
+// import "./globals.css";
+// import Header from "@/components/layout/header";
+// import Footer from "@/components/layout/footer";
+
+// const inter = Inter({ subsets: ["latin"] });
+
+// // src/app/layout.tsx
+
+// export const metadata: Metadata = {
+//   title: "Citadely | 50 Free AI Prompts for Students",
+//   description: "Download the ultimate AI prompt vault. Save 20+ hours of study time and start earning in USD.",
+//   openGraph: {
+//     title: "Citadely | 50 Free AI Prompts for Students",
+//     description: "Get the professional-grade AI toolkits for students. 100% Free Download.",
+//     url: "https://www.citadely.net",
+//     siteName: "Citadely",
+//     images: [
+//       {
+//         url: "https://www.citadely.net/og/study-prompts.png", // Use the path to your best prompt image
+//         width: 1200,
+//         height: 630,
+//       },
+//     ],
+//     type: "website",
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     images: ["https://www.citadely.net/og/study-prompts.png"],
+//   },
+// };
+
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <html lang="en">
+  
+//       <body className={inter.className}>
+//         <div className="min-h-screen flex flex-col bg-white">
+//           <Header />
+//           <main className="flex-grow">
+//             {children}
+//           </main>
+//           <Footer />
+//         </div>
+//       </body>
+//     </html>
+//   );
+// }
+
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -105,27 +160,30 @@ import Footer from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// src/app/layout.tsx
-
+// SEO & Social Media Metadata
 export const metadata: Metadata = {
   title: "Citadely | 50 Free AI Prompts for Students",
   description: "Download the ultimate AI prompt vault. Save 20+ hours of study time and start earning in USD.",
   openGraph: {
     title: "Citadely | 50 Free AI Prompts for Students",
-    description: "Get the professional-grade AI toolkits for students. 100% Free Download.",
+    description: "Get professional-grade AI toolkits for students. 100% Free Download.",
     url: "https://www.citadely.net",
     siteName: "Citadely",
     images: [
       {
-        url: "https://www.citadely.net/og/study-prompts.png", // Use the path to your best prompt image
+        url: "https://www.citadely.net/og/study-prompts.png", // Absolute URL for better social scraping
         width: 1200,
         height: 630,
+        alt: "50 Free AI Prompts for Students",
       },
     ],
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    title: "50 Free AI Prompts for Students | Citadely",
+    description: "Master your degree and start earning in USD. Get our professional-grade AI toolkits for free.",
     images: ["https://www.citadely.net/og/study-prompts.png"],
   },
 };
@@ -137,13 +195,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-  
+      <head>
+        {/* IMPACT VERIFICATION - ESSENTIAL FOR AFFILIATE APPROVAL */}
+        <meta name="impact-site-verification" content="fd132833-fb8d-4a74-ade4-f0b357ee9a1e" />
+      </head>
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col bg-white">
+          {/* Global Navigation */}
           <Header />
+          
+          {/* Main Content Area */}
           <main className="flex-grow">
             {children}
           </main>
+
+          {/* Global Footer with Legal Links & Verification Content */}
           <Footer />
         </div>
       </body>
