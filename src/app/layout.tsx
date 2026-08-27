@@ -41,6 +41,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Citadely",
   description: "Free resources and guides.",
+  verification: {
+    other: {
+      "impact-site-verification": ["fd132833-fb8d-4a74-ade4-f0b357ee9a1e"],
+    },
+  },
 };
 
 
