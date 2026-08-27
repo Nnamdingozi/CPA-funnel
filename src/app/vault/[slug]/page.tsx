@@ -236,22 +236,18 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-/**
- * DYNAMIC METADATA GENERATION
- * Logic: This tells Quora, WhatsApp, and Twitter exactly what image and text to show 
- * for this specific resource.
- */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const offer = OFFERS.find((o) => o.slug === slug);
 
+  // FALLBACK IF OFFER NOT FOUND
   if (!offer) {
     return { 
       title: "Resource Not Found | Citadely",
-      description: "The requested AI resource could not be found."
     };
   }
 
+  // THE FULL ABSOLUTE PATHS (CRUCIAL FOR QUORA)
   const fullUrl = `https://www.citadely.net/vault/${offer.slug}`;
   const fullImageUrl = `https://www.citadely.net${offer.ogImage}`;
 
@@ -263,6 +259,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: offer.description,
       url: fullUrl,
       siteName: "Citadely",
+      type: "website",
       images: [
         {
           url: fullImageUrl,
@@ -271,7 +268,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: offer.title,
         },
       ],
-      type: "website",
     },
     twitter: {
       card: "summary_large_image",
@@ -282,10 +278,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-/**
- * VAULT PAGE COMPONENT
- * Logic: The Server Component fetches the data and passes it to the Client Component (VaultClient).
- */
 export default async function VaultPage({ params }: Props) {
   const { slug } = await params;
   const offer = OFFERS.find((o) => o.slug === slug);
@@ -295,4 +287,5 @@ export default async function VaultPage({ params }: Props) {
   }
 
   return <VaultClient offer={offer} />;
+}
 }
