@@ -105,9 +105,29 @@ import Footer from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// src/app/layout.tsx
+
 export const metadata: Metadata = {
-  title: "Citadely",
-  description: "Free resources and guides.",
+  title: "Citadely | 50 Free AI Prompts for Students",
+  description: "Download the ultimate AI prompt vault. Save 20+ hours of study time and start earning in USD.",
+  openGraph: {
+    title: "Citadely | 50 Free AI Prompts for Students",
+    description: "Get the professional-grade AI toolkits for students. 100% Free Download.",
+    url: "https://www.citadely.net",
+    siteName: "Citadely",
+    images: [
+      {
+        url: "/og/study-prompts.png", // Use the path to your best prompt image
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og/study-prompts.png"],
+  },
 };
 
 export default function RootLayout({
