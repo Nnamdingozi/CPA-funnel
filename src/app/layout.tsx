@@ -117,10 +117,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* CORRECTED IMPACT VERIFICATION TAG */}
-        <meta name="impact-site-verification" content="fd132833-fb8d-4a74-ade4-f0b357ee9a1e" />
-      </head>
+  
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col bg-white">
           <Header />
